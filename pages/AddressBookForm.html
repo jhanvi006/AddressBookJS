@@ -30,14 +30,17 @@
                 <div class="row-content">
                     <label class="label text" for="name">Full Name</label>
                     <input type="text" class="input" id="name" name="name" required>
+                    <error-output class="name-error" for="name"></error-output>
                 </div>
                 <div class="row-content">
                     <label class="label text" for="phoneNo">Phone Number</label>
                     <input type="tel" class="input" id="phoneNo" name="phoneNo" required>
+                    <error-output class="phone-error" for="phoneNo"></error-output>
                 </div>
                 <div class="row-content">
                     <label class="label text" for="address">Address</label>
                     <textarea name="address" id="address" class="input" rows="3"></textarea>
+                    <error-output class="address-error" for="address"></error-output>
                 </div>
                 <div class="select-items">
                     <div class="row-content">
@@ -59,6 +62,7 @@
                     <div class="row-content">
                         <label class="label text" for="zip">Zip</label>
                         <input type="text" class="input" id="zip" name="zip" required>
+                        <error-output class="zip-error" for="zip"></error-output>
                     </div>
                 </div>
                 <div class="submit-reset">
@@ -68,5 +72,7 @@
             </form>
         </div>
         <script src="../js/handleSelect.js"></script>
+        <script src="../js/validation.js"></script>
+        <script src="../js/AddressBook.js"></script>
     </body>
 </html>
