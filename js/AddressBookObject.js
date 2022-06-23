@@ -1,6 +1,7 @@
 const save = (event) => {
     try {
-        createJsonObject();
+        let addressBookData = createJsonObject();
+        createAndUpdateStorage(addressBookData);
         resetForm();
     } catch (e) {
         console.log(e);
@@ -35,11 +36,48 @@ const createJsonObject = () => {
         zipError = document.querySelector('.zip-error');
         zipError.textContent = e;
     }
-    alert(JSON.stringify(addressBook));
+    // alert(JSON.stringify(addressBook));
+    return addressBook;
 }
 const createNewId = () => {
     let addrBookId = localStorage.getItem('AddressBookId');
     addrBookId = !addrBookId ? 1 : (parseInt(addrBookId)+1);
     localStorage.setItem('AddressBookId', addrBookId);
     return addrBookId;
+}
+//-------------- local storage ---------------------
+const createAndUpdateStorage = (addressBookData) => {
+    let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
+    if (addressBookList != undefined) {
+        addressBookList.push(addressBookData);
+    } else {
+        addressBookList = [addressBookData];
+    }
+    // alert(addressBookList.toString());
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
+}
+//-------------- reset form ---------------------
+const resetForm = () => {
+    setValue('#name', '');
+    setValue('#phoneNo', '');
+    setValue('#address', '');
+    setSelectedIndex('#city', 0);
+    setSelectedIndex('#state', 0);
+    setValue('#zip', '');
+    setTextValue('.name-error', '');
+    setTextValue('.phone-error', '');
+    setTextValue('.address-error', '');
+    setTextValue('.zip-error', '');
+}
+const setValue = (selector, value) => {
+    const element = document.querySelector(selector);
+    element.value = value;
+}
+const setSelectedIndex = (id, index) => {
+    const element = document.querySelector(id);
+    element.selectedIndex = index;
+}
+const setTextValue = (selector, value) => {
+    const element = document.querySelector(selector);
+    element.textContent = value;
 }
