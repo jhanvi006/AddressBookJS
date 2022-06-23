@@ -1,12 +1,21 @@
+let contactList;
 window.addEventListener('DOMContentLoaded', (event) => {
+    contactList = getContactsFromStorage();
+    document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
 });
 
+const getContactsFromStorage = () => {
+    return localStorage.getItem('AddressBookList') ? 
+                            JSON.parse(localStorage.getItem('AddressBookList')) : [];
+}
+
 const createInnerHtml = () => {
+    if(contactList.length == 0) return;
     const headerHtml = "<th>Fullname</th><th>Address</th><th>City</th><th>State</th>"+
                         "<th>Zip Code</th><th>Phone Number</th><th></th>";
     let innerHtml = `${headerHtml}`;
-    let contactList = createContactsJson();
+    // let contactList = createContactsJson();
     for(const contact of contactList){
         innerHtml = `${innerHtml}
             <tr>

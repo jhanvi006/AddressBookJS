@@ -14,7 +14,3 @@ function makeCitySubmenu(value) {
         document.getElementById("city").innerHTML = citiesOptions;
     }
 }
-function resetSelection() {
-    document.getElementById("state").selectedIndex = 0;
-    document.getElementById("city").selectedIndex = 0;
-}
