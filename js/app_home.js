@@ -59,3 +59,10 @@ const remove = (node) => {
     document.querySelector(".person-count").textContent = contactList.length;
     createInnerHtml();
 }
+
+const update = (node) => {
+    let contact = contactList.find(contactData => contactData._id == node.id);
+    if(!contact) return;
+    localStorage.setItem('editContact', JSON.stringify(contact));
+    window.location.replace(site_properties.add_address_book_detail);
+}

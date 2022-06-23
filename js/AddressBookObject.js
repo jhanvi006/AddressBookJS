@@ -1,3 +1,5 @@
+let isUpdate = false;
+let addressBookObject = {};
 const save = (event) => {
     try {
         let addressBookData = createJsonObject();
@@ -85,4 +87,8 @@ const setSelectedIndex = (id, index) => {
 const setTextValue = (selector, value) => {
     const element = document.querySelector(selector);
     element.textContent = value;
+}
+const setOption = (selector, value) => {
+    const element = document.querySelector(selector);
+    element.innerHTML = "<option>"+value+"</option>";
 }

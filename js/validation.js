@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     validatePhoneNo();
     validateAddress();
     validateZip();
+    checkForUpdate();
 });
 const validateName = () => {
     const name = document.querySelector('#name');
@@ -71,4 +72,21 @@ const validateZip = () => {
             zipError.textContent = e;
         }
     });
+}
+const checkForUpdate = () => {
+    const addressBookJson = localStorage.getItem('editContact');
+    isUpdate = addressBookJson ? true : false;
+    if(!isUpdate) return;
+    addressBookObject = JSON.parse(addressBookJson);
+    setForm();
+}
+const setForm = () => {
+    setValue('#name', addressBookObject._name);
+    setValue('#address', addressBookObject._address);
+    setValue('#state', addressBookObject._state);
+    // alert(addressBookObject._city+" element value: "+document.getElementById("city").value);
+    setOption('#city', addressBookObject._city);
+    // alert(addressBookObject._city+" element value: "+document.getElementById("city").value);
+    setValue('#zip', addressBookObject._zip);
+    setValue('#phoneNo', addressBookObject._phone);
 }
