@@ -26,8 +26,8 @@ const createInnerHtml = () => {
                 <td>${contact._zip}</td>
                 <td>${contact._phone}</td>
                 <td>
-                    <img src="../assets/icons/delete-black-18dp.svg" alt="">
-                    <img src="../assets/icons/create-black-18dp.svg" alt="">
+                    <img id="${contact._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="">
+                    <img id="${contact._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg" alt="">
                 </td>
             </tr>
         `;
@@ -47,4 +47,15 @@ const createContactsJson = () => {
         }
     ];
     return contactListLocal;
+}
+
+const remove = (node) => {
+    let contact = contactList.find(contactData => contactData._id == node.id);
+    if(!contact) return;
+    const index = contactList.map(contactData => contactData._id)
+                                .indexOf(contact._id);
+    contactList.splice(index, 1);
+    localStorage.setItem("AddressBookList", JSON.stringify(contactList));
+    document.querySelector(".person-count").textContent = contactList.length;
+    createInnerHtml();
 }
