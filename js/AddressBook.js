@@ -39,4 +39,9 @@ class AddressBook {
             this._zip = zip;
         else throw 'Zip is Incorrect!';
     }
+    toString(){
+        return `Id: ${this.id}, Name: ${this.name}, Phone No: ${this.phoneNo}, 
+        Address: ${this.address}, State: ${this.state}, City: ${this.city}, 
+        Zip: ${this.zip}`;
+    }
 }

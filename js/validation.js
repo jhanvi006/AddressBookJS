@@ -72,3 +72,28 @@ const validateZip = () => {
         }
     });
 }
+//-------------- reset form ---------------------
+const resetForm = () => {
+    setValue('#name', '');
+    setValue('#phoneNo', '');
+    setValue('#address', '');
+    setSelectedIndex('#city', 0);
+    setSelectedIndex('#state', 0);
+    setValue('#zip', '');
+    setTextValue('.name-error', '');
+    setTextValue('.phone-error', '');
+    setTextValue('.address-error', '');
+    setTextValue('.zip-error', '');
+}
+const setValue = (selector, value) => {
+    const element = document.querySelector(selector);
+    element.value = value;
+}
+const setSelectedIndex = (id, index) => {
+    const element = document.querySelector(id);
+    element.selectedIndex = index;
+}
+const setTextValue = (selector, value) => {
+    const element = document.querySelector(selector);
+    element.textContent = value;
+}
