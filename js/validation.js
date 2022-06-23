@@ -84,9 +84,8 @@ const setForm = () => {
     setValue('#name', addressBookObject._name);
     setValue('#address', addressBookObject._address);
     setValue('#state', addressBookObject._state);
-    // alert(addressBookObject._city+" element value: "+document.getElementById("city").value);
-    setOption('#city', addressBookObject._city);
-    // alert(addressBookObject._city+" element value: "+document.getElementById("city").value);
+    const state = document.getElementById("state").value;
+    setOption(state, '#city', addressBookObject._city);
     setValue('#zip', addressBookObject._zip);
     setValue('#phoneNo', addressBookObject._phone);
 }

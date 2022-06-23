@@ -2,7 +2,9 @@ let contactList;
 window.addEventListener('DOMContentLoaded', (event) => {
     contactList = getContactsFromStorage();
     document.querySelector(".person-count").textContent = contactList.length;
+    console.log(contactList);
     createInnerHtml();
+    localStorage.removeItem('editContact');
 });
 
 const getContactsFromStorage = () => {
