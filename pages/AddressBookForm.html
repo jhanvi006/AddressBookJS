@@ -23,9 +23,9 @@
             <form class="form" action="#" onsubmit="save(event);" onreset="resetForm();">
                 <div class="form-head">
                     Person Address Form
-                    <a href="AddressBookDisplay.html" class="cancel-button">
-                        <img class="cancel-icon" src="../assets/icons/cancel.svg" alt="cancel">
-                    </a>
+                    <!-- <a href="AddressBookDisplay.html" class="cancel-button"> -->
+                        <img class="cancel-icon" src="../assets/icons/cancel.svg" alt="cancel" onclick="cancelForm();">
+                    <!-- </a> -->
                 </div>
                 <div class="row-content">
                     <label class="label text" for="name">Full Name</label>
@@ -73,6 +73,7 @@
         </div>
         <script src="../js/handleSelect.js"></script>
         <script src="../js/validation.js"></script>
+        <script src="../js/site_properties.js"></script>
         <script src="../js/AddressBook.js"></script>
         <script src="../js/AddressBookObject.js"></script>
     </body>

@@ -57,6 +57,10 @@ const createAndUpdateStorage = (addressBookData) => {
     // alert(addressBookList.toString());
     localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
 }
+//-------------- cancel form ---------------------
+const cancelForm = () => {
+    window.location.replace(site_properties.home_page);
+}
 //-------------- reset form ---------------------
 const resetForm = () => {
     setValue('#name', '');
